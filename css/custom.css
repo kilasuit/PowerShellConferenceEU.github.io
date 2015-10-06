@@ -3,6 +3,7 @@ body {
   padding-top: 50px;
   padding-bottom: 20px;
   font-size: 16px;
+  font-family: 'Halant', serif;
 }
 
 section {
@@ -11,7 +12,8 @@ section {
 
 .navbar-brand {
     font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
-    color: #fed136!important;
+    /*color: #fed136!important;*/
+    color: dodgerblue!important;
 }
 
 .navbar-inverse .nav li a {
@@ -23,11 +25,16 @@ section {
     color: #fff;
 }
 
-.navbar-inverse .nav li a:hover,
-.navbar-inverse .nav li a:focus {
+.navbar-inverse .nav li a:hover {
     outline: 0;
-    color: #fed136;
+    /*color: #fed136*/
+    color: dodgerblue;
 }
+/*.navbar-inverse .nav li a:focus {
+    outline: 0;
+    color: #fff;
+    /*color: #fed136;*/
+/*}*/
 
 .navbar-inverse .navbar-nav>.active>a {
     border-radius: 0;
@@ -45,31 +52,13 @@ section {
   text-align: center;
 }
 
-.flip-clock-wrapper {
-  width: auto;
-  display: inline-block;
+@media screen and (min-width: 500px) and (max-width: 767px) {
+	
+	
 }
 
-@media screen and (max-width: 767px) {
-	
-	/*.flip-clock-wrapper ul { height: 50px; line-height: 50px; }*/
-  .flip-clock-wrapper ul { height: 50px; line-height: 50px; }
-	/*.flip-clock-wrapper ul li a div.up:after { top: 24px; }*/
-  .flip-clock-wrapper ul li a div.up:after { top: 24px; }
-  .flip-clock-wrapper ul li {line-height: 50px;}
-	.flip-clock-divider { height: 50px; }
-	.flip-clock-dot { height: 6px; width: 6px; left: 7px;}
-	/*.flip-clock-dot.top { top: 17px; }*/
-  .flip-clock-dot.top { top: 20px; }
-	.flip-clock-dot.bottom { bottom: 8px; }
-	
-	.flip-clock-divider .flip-clock-label { font-size: 16px; }
-	.flip-clock-divider.hours .flip-clock-label { right: -66px; }
-	.flip-clock-divider.minutes .flip-clock-label { right: -78px; }
-	.flip-clock-divider.seconds .flip-clock-label { right: -78px; }
-	
-	.flip-clock-wrapper ul { width: 37px; }
-	.flip-clock-wrapper ul li a div div.inn { font-size: 30px; }
+@media screen and (max-width: 499px) {
+  
 }
 
 .footer {
@@ -88,4 +77,24 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+}
+
+.back-to-top {
+  position: fixed;
+	opacity: 0;
+	visibility: hidden;
+  z-index: 99999999;
+  right: 30px;
+	bottom: 30px;
+  -webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
+.back-to-top.show {
+  visibility:visible;
+  cursor:pointer;
+	opacity: 1.0;
 }
