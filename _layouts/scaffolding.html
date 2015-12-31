@@ -11,20 +11,28 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    
+
     <!-- soon plugin -->
     <link href="{{ "/css/soon.min.css" | prepend: site.baseurl }}" rel="stylesheet">
     
+    <!-- formhelpers -->
+    <link href="{{ "/css/bootstrap-formhelpers.min.css" | prepend: site.baseurl }}" rel="stylesheet">
+    
+    <!-- overlay-bootstrap -->
+    <link href="{{ "/css/overlay-bootstrap.min.css" | prepend: site.baseurl }}" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="{{ "/css/custom.css" | prepend: site.baseurl }}" rel="stylesheet">  
-    
+
     <!-- Custom Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Halant' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Gentium+Book+Basic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,47 +41,22 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
-  
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- Controlling whether the sitename is added to the navbar or not are done from _data/nav.yml -->
-          {% if site.data.nav.showsitename == "true" %}
-            <a class="navbar-brand" href="#">{{ site.name }}</a>
-          {% endif %}
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <!-- Reading the navigation from _data/nav.yml -->
-            {% for nav in site.data.nav[page.lang] %}
-            <li><a data-scroll href="{{ nav.link }}">{{ nav.name }}</a></li>
-            {% endfor %}
-            <!-- The Legal link as well as the language switcher are handled separately -->
-            {% if page.lang == 'en' %}
-            <li><a href="#" data-toggle="modal" data-target="#Legal">Legal</a></li>
-            <li><a href="{{ "/de/" | prepend: site.baseurl }}">Deutsch</a></li>
-            {% else %}
-            <li><a href="#" data-toggle="modal" data-target="#Legal">Impressum</a></li>
-            <li><a href="{{ "/" | prepend: site.baseurl }}">English</a></li>
-            {% endif %}
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+  <body  id="page-top">
+
+    {% include navbar.html %}
     
     <!-- Scroll to top -->
-    <div class="back-to-top"><a data-scroll href="#" class="text-muted"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a></div>
-    
-    {% include {{page.lang}}/legal.html %}
-    
+    <div class="back-to-top"><a data-scroll href="#page-top" class="text-muted"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a></div>
+
+    <div id="wrap">
+
     {{ content }}
+    
+    </div>
+    
+    {% if site.data.features.includeFooter %}
+      {% include footer.html %}
+    {% endif %}
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -82,31 +65,17 @@
     <script src="{{ "/js/jquery.photoset-grid.min.js" | prepend: site.baseurl }}"></script>
     <script src="{{ "/js/smooth-scroll.min.js" | prepend: site.baseurl }}"></script>
     <script src="{{ "/js/soon.min.js" | prepend: site.baseurl }}"></script>
-    <script>
-      // smoothscroll
-      smoothScroll.init({
-        speed: 500, // Integer. How fast to complete the scroll in milliseconds
-        easing: 'easeOutQuint', // Easing pattern to use
-        updateURL: false, // Boolean. Whether or not to update the URL with the anchor hash on scroll
-        offset: 0, // Integer. How far to offset the scrolling anchor location in pixels
-      });
-
-      // photogrid
-      $('.photogrid').photosetGrid({
-        // Set the gutter between columns and rows
-        gutter: '5px'
-      });
-      
-      // Scroll to top
-      $(function(){
-        $(document).on( 'scroll', function(){
-          if ($(window).scrollTop() > 100) {
-            $('.back-to-top').addClass('show');
-          } else {
-            $('.back-to-top').removeClass('show');
-          }
-	     });
-      });
-    </script>
+    <script src="{{ "/js/validator.min.js" | prepend: site.baseurl }}"></script>
+    <!--<script src="{{ "/js/bootstrap-formhelpers.js" | prepend: site.baseurl }}"></script>-->
+    <script src="{{ "/js/bootstrap-formhelpers-countries.js" | prepend: site.baseurl }}"></script>
+    <script src="{{ "/js/bootstrap-formhelpers-phone.js" | prepend: site.baseurl }}"></script>
+    <script src="{{ "/js/bootstrap-formhelpers-phone.en_US.js" | prepend: site.baseurl }}"></script>
+    {% if page.lang == 'en' %}
+    <script src="{{ "/js/bootstrap-formhelpers-countries.en_US.js" | prepend: site.baseurl }}"></script>
+    {% else %}
+    <script src="{{ "/js/bootstrap-formhelpers-countries.de_DE.js" | prepend: site.baseurl }}"></script>
+    {% endif %}
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script src="{{ "/js/custom.js" | prepend: site.baseurl }}"></script>
   </body>
 </html>

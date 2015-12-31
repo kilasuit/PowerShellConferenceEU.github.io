@@ -1,9 +1,14 @@
 PowerShellConferenceEU.github.io
 ================================
 
+[![Build Status](https://travis-ci.org/PowerShellConferenceEU/PowerShellConferenceEU.github.io.svg?branch=Dev)](https://travis-ci.org/PowerShellConferenceEU/PowerShellConferenceEU.github.io)
+
 This is the [website](http://psconf.eu "website") for PowerShell Conference Europe. The site in bilingual; supporting English as the main language as well German. 
 
 The site is hosted on [GitHub Pages](https://pages.github.com/ "GitHub Pages") and are running on the [Jekyll](http://jekyllrb.com/ "Jekyll") engine, with [Bootstrap](http://getbootstrap.com/ "Bootstrap") as the main styling framework. We have tried to make the site structure easy to maintain as well as update, as well as multilingual. It should be fairly easy to add inn extra languages if needed.
+
+** A note about encoding **
+It's important that all files are encoded in UTF-8, as Jekyll will do strange things if the file encoding is wrong. Even using UTF-8-DOM is frowned upon by our Mr. Jekyll I'm afraid.
 
 Site structure
 --------------  
@@ -45,6 +50,7 @@ The following frameworks and third-party plugins/modules are used on this site:
 - [jquery-photoset-grid.js](http://stylehatch.github.io/photoset-grid/ "jquery-photoset-grid.js")
 - [smooth-scroll.js](https://github.com/cferdinandi/smooth-scroll "smooth-scroll.js")
 - [soon countdown pack*](http://codecanyon.net/item/soon-countdown-pack-responsive-jquery-plugin/9485513 "soon countdown pack")
+- [overlay-bootstrap](https://github.com/karbonn/Overlay-Bootstrap "overlay-bootstrap")
 
 *The soon countdown pack is a paid third party plugin. If you fork this project to use for another site, please remove this plugin or you are in violation of the terms for this plugin.
 
@@ -52,10 +58,10 @@ Todo
 ----
 
 - [x] Make site bilingual
-- [ ] Translate English text to German
-- [ ] Add Legal text
-- [ ] Set up a contact form
-- [ ] Figure out how we integrate registration/payment
+- [x] Translate English text to German
+- [x] Add Legal text
+- [x] Set up a contact form
+- [x] Figure out how we integrate registration/payment
 - [ ] Other stuff
 
 About us
